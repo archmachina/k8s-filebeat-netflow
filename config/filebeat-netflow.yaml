@@ -1,3 +1,4 @@
+---
 filebeat.config:
   modules:
     path: ${path.config}/modules.d/*.yml
@@ -5,7 +6,10 @@ filebeat.config:
 
 processors:
   - fingerprint:
-      fields: ["flow.id", "netflow.exporter.address", "netflow.exporter.timestamp"]
+      fields:
+        - "flow.id"
+        - "netflow.exporter.address"
+        - "netflow.exporter.timestamp"
       target_field: "@metadata._id"
   - add_cloud_metadata: ~
   - add_docker_metadata: ~
@@ -39,7 +43,7 @@ filebeat.inputs:
   - type: netflow
     max_message_size: 10KiB
     host: "0.0.0.0:2055"
-    protocols: [ v5, v9, ipfix ]
+    protocols: [v5, v9, ipfix]
     expiration_timeout: 30m
     queue_size: 8192
     detect_sequence_reset: true
