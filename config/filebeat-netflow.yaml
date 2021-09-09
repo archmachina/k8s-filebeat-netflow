@@ -19,12 +19,12 @@ setup.template.name: "filebeat-netflow-%{[agent.version]}"
 setup.template.pattern: "filebeat-netflow-%{[agent.version]}-*"
 setup.template.overwrite: false
 
-#setup.ilm.enabled: auto
-#setup.ilm.rollover_alias: "filebeat-netflow-%{[agent.version]}"
-#setup.ilm.pattern: "{now/d}-000001"
-#setup.ilm.policy_name: "filebeat-netflow"
-#setup.ilm.check_exists: true
-#setup.ilm.overwrite: true
+# setup.ilm.enabled: auto
+# setup.ilm.rollover_alias: "filebeat-netflow-%{[agent.version]}"
+# setup.ilm.pattern: "{now/d}-000001"
+# setup.ilm.policy_name: "filebeat-netflow"
+# setup.ilm.check_exists: true
+# setup.ilm.overwrite: true
 setup.ilm.enabled: false
 
 output.elasticsearch:
