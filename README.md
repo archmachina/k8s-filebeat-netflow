@@ -1,1 +1,1 @@
-# k8s-filebeat-netflow
+# kustomize-filebeat-netflow
