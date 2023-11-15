@@ -1,0 +1,28 @@
+---
+
+kind: Kustomization
+
+secretGenerator:
+  - name: filebeat-netflow-cert
+    type: Opaque
+  
+  - name: filebeat-netflow-credentials
+    type: Opaque
+    # literals:
+    #   - elastic_username=changeme
+    #   - elastic_password=changeme
+
+configMapGenerator:
+  - name: filebeat-netflow-files
+    files:
+      - filebeat.yml=files/filebeat-netflow.yaml
+      - ilm-policy.json=files/ilm-policy.json
+
+  - name: filebeat-netflow-config
+    literals:
+      - elasticwait_cert_verify=0
+      - elasticwait_time_wait=30
+      - elasticwait_max_attempts=60
+      - elastic_host=elastic-svc
+      - elastic_port=9200
+      - netflow_host_port=2055
