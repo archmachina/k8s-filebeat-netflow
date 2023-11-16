@@ -15,9 +15,6 @@ spec:
         component: filebeat-netflow
     spec:
       volumes:
-        - name: elastic-ca-cert
-          secret:
-            secretName: elastic-ca-cert
         - name: filebeat-netflow-files
           configMap:
             name: filebeat-netflow-files
@@ -70,8 +67,6 @@ spec:
             - name: filebeat-netflow-files
               mountPath: /usr/share/filebeat/ilm-policy.json
               subPath: ilm-policy.json
-            - name: elastic-ca-cert
-              mountPath: /usr/share/filebeat/certs/
           env:
             - name: ELASTIC_HOST
               valueFrom:

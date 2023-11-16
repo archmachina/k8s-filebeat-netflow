@@ -3,7 +3,7 @@
 kind: Kustomization
 
 secretGenerator:
-  - name: filebeat-netflow-cert
+  - name: filebeat-netflow-certs
     type: Opaque
 
   - name: filebeat-netflow-credentials
