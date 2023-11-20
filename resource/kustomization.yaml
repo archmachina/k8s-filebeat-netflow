@@ -26,3 +26,4 @@ configMapGenerator:
       - elastic_host=elastic-svc
       - elastic_port=9200
       - netflow_host_port=2055
+      - index_replicas=1

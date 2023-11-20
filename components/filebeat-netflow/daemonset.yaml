@@ -88,6 +88,11 @@ spec:
                 secretKeyRef:
                   name: filebeat-netflow-credentials
                   key: elastic_password
+            - name: INDEX_REPLICAS
+              valueFrom:
+                configMapKeyRef:
+                  name: filebeat-netflow-config
+                  key: index_replicas
           ports:
             - name: "udp-2055"
               protocol: UDP
